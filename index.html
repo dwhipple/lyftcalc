@@ -41,87 +41,13 @@
 </head>
 
 <body>
-  <section id='page5'>
-	<h1>LyftCalc</h1>
-	<div class="container">
-		<div class="row">
-	      <div class="col-md-8 col-md-offset-2">
-	        <div class="well well-sm">
-	          <form class="form-horizontal" action="send_form_email.php" method="post">
-	          <fieldset>
-
-	            <!-- Name input-->
-	            <div class="form-group">
-	              <label class="col-sm-4 control-label" for="name">Estimated Miles</label>
-	              <div class="col-sm-8">
-	                <input id="miles" name="miles" type="number" placeholder="Estimated Miles" class="form-control">
-	              </div>
-	            </div>
-	    
-
-	            <!-- Email input-->
-	            <div class="form-group">
-	              <label class="col-sm-4 control-label" for="minutes">Estimated Minutes</label>
-	              <div class="col-sm-8">
-	                <input id="minutes" name="minutes" type="number" placeholder="Estimated Minutes" class="form-control">
-	              </div>
-	            </div>
-	    
-
-	            <!-- Message body -->
-	            <div class="form-group">
-
-	            <!-- Tip Dropdown -->
-
-	              <label class="col-sm-4 control-label" for="tip">Tip %</label>
-	              <div class="col-sm-8">
-                    <select id="percentage">
-                        <option value="0">0%</option>
-                        <option value ="25">25%</option>
-                        <option value="50"> 50%</option>
-                        <option value="75">75%</option>
-                    </select>
-	              </div>
-	            </div>
-	            <div id='results'>
-		           <h3>Your fare costs $<span id='total'></span></h3>
-		           <h2><span id='coupon'></span></h2>
-	           </div>
-	          </fieldset>
-	          </form>
-	        </div>
-	      </div>
-		</div>
-	</div>
-  </section>
+  
 
 
-<script>
-
-$('#miles, #minutes, #percentage').on('input', function () {
-	var miles = parseInt($('#miles').val()) || 0;
-	var minutes = parseInt($('#minutes').val()) || 0;
-    var tip = parseInt($('#percentage').val()) || 0;
-	var total = Math.ceil(3 + ((2.15 * miles) + (.4 * minutes))); 
-    
-    if (total < 8){
-		total = 8
-	}
-    
-    var totalPlusTip = total + ( (total*tip) / 100 );
-	$('#total').text(totalPlusTip);
-
-	if (total >= 25){
-		$('#coupon').text("You don't get the discount. They fucked you over!")
-	}
-	else {
-		$('#coupon').text("You get the discount!")
-
-	}
-
-});
-</script>
 
 
+
+
+  
 </body>
 </html>
