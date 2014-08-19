@@ -76,36 +76,32 @@
 	              <label class="col-sm-4 control-label" for="tip">Tip %</label>
 	              <div class="col-sm-8">
 
-	              	
-	              	
+	              	<input id="percentage" name="percentage" type="number" placeholder="Tip %" class="form-control">
+	              	<!--
+                        Why select? let the user choose arbitrary percentage
 						<select id="percentage">
 							<option value="0">0%</option>
 							<option value ="25">25%</option>
 							<option value="50"> 50%</option>
 							<option value="75">75%</option>
-						</select>
+						</select> -->
 
 				<script>
-				
-			        	
-								function CalcTip() {
-
-
-			    document.getElementById("percentage").value;
-			    if (percentage == '0') {
-			        tip = 0;
-			    } else if (percentage == '25') {
-			        tip = 25;
-			    } else if (percentage == '50') {
-			        tip = 50;
-			    } else if (percentage == '75') {
-			        tip = 75;
-			    }
-			}
-
-
-
-
+                    /*function CalcTip() {
+                        document.getElementById("percentage").value;
+                        if (percentage == '0') {
+                            tip = 0;
+                        } 
+                        else if (percentage == '25') {
+                            tip = 25;
+                        }
+                        else if (percentage == '50') {
+                            tip = 50;
+                        } 
+                        else if (percentage == '75') {
+                            tip = 75;
+                        }
+                    }*/
 				</script>
 
 
@@ -127,21 +123,24 @@
 
 <script>
 
-$('#miles, #minutes, #tip, CalcTip').keyup(function () {
+$('#miles, #minutes, #percentage').on('input', function () {
 	var miles = parseInt($('#miles').val()) || 0;
 	var minutes = parseInt($('#minutes').val()) || 0;
-	var tip = parseInt($('CalcTip').val()) || 0;
-
-
-		
-	var total = 3 + ((2.15 * miles) + (.4 * minutes)) + tip;
-
-
-	if (total < 8){
+    var tip = parseInt($('#percentage').val()) || 0;
+    /*
+    if you want to implement tip % with select+options, 
+    get the selection option from #perecntage option descendants, retrive value using attr():
+    parseInt($('#percentage option:selected').attr('value'));
+    */
+    // You souhld calculate tip as percent of the total, see totalPlusTip assignment below
+	var total = 3 + ((2.15 * miles) + (.4 * minutes)); /*+ tip; */ 
+    
+    if (total < 8){
 		total = 8
 	}
-
-	$('#total').text(Math.ceil(total));
+    
+    var totalPlusTip = total + ( (total*tip) / 100 );
+	$('#total').text(Math.ceil(totalPlusTip));
 
 	if (total >= 25){
 		$('#coupon').text("You don't get the discount. They fucked you over!")
@@ -151,10 +150,7 @@ $('#miles, #minutes, #tip, CalcTip').keyup(function () {
 
 	}
 
-
-
 });
-
 </script>
 
 
