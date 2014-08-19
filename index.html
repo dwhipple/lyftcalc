@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Lyft Calculator</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/bootstrap.css">
+	<link rel="stylesheet" href="stylesheets/bootstrap-theme.css">
+	<link rel="stylesheet" href="stylesheets/main.css">
+	<link rel="stylesheet" href="stylesheets/responsive.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<script src="jquery.js"></script>
+</head>
+
+<body>
+  <section id='page5'>
+	<h1>LyftCalc</h1>
+	<div class="container">
+		<div class="row">
+	      <div class="col-md-8 col-md-offset-2">
+	        <div class="well well-sm">
+	          <form class="form-horizontal" action="send_form_email.php" method="post">
+	          <fieldset>
+
+	            <!-- Name input-->
+	            <div class="form-group">
+	              <label class="col-sm-4 control-label" for="name">Estimated Miles</label>
+	              <div class="col-sm-8">
+	                <input id="miles" name="miles" type="number" placeholder="Estimated Miles" class="form-control">
+	              </div>
+	            </div>
+	    
+
+	            <!-- Email input-->
+	            <div class="form-group">
+	              <label class="col-sm-4 control-label" for="minutes">Estimated Minutes</label>
+	              <div class="col-sm-8">
+	                <input id="minutes" name="minutes" type="number" placeholder="Estimated Minutes" class="form-control">
+	              </div>
+	            </div>
+	    
+
+	            <!-- Message body -->
+	            <div class="form-group">
+
+	            <!-- Tip Dropdown -->
+
+	              <label class="col-sm-4 control-label" for="tip">Tip %</label>
+	              <div class="col-sm-8">
+
+	              	
+	              	
+						<select id="percentage">
+							<option value="0">0%</option>
+							<option value ="25">25%</option>
+							<option value="50"> 50%</option>
+							<option value="75">75%</option>
+						</select>
+
+				<script>
+				
+			        	
+								function CalcTip() {
+
+
+			    document.getElementById("percentage").value;
+			    if (percentage == '0') {
+			        tip = 0;
+			    } else if (percentage == '25') {
+			        tip = 25;
+			    } else if (percentage == '50') {
+			        tip = 50;
+			    } else if (percentage == '75') {
+			        tip = 75;
+			    }
+			}
+
+
+
+
+				</script>
+
+
+
+	              </div>
+	            </div>
+	            <div id='results'>
+		           <h3>Your fare costs $<span id='total'></span></h3>
+		           <h2><span id='coupon'></span></h2>
+	           </div>
+	          </fieldset>
+	          </form>
+	        </div>
+	      </div>
+		</div>
+	</div>
+  </section>
+
+
+<script>
+
+$('#miles, #minutes, #tip, CalcTip').keyup(function () {
+	var miles = parseInt($('#miles').val()) || 0;
+	var minutes = parseInt($('#minutes').val()) || 0;
+	var tip = parseInt($('CalcTip').val()) || 0;
+
+
+		
+	var total = 3 + ((2.15 * miles) + (.4 * minutes)) + tip;
+
+
+	if (total < 8){
+		total = 8
+	}
+
+	$('#total').text(Math.ceil(total));
+
+	if (total >= 25){
+		$('#coupon').text("You don't get the discount. They fucked you over!")
+	}
+	else {
+		$('#coupon').text("You get the discount!")
+
+	}
+
+
+
+});
+
+</script>
+
+
+</body>
+</html>
