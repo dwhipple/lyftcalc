@@ -1,13 +1,5 @@
 /*Homepage CSS*/
 
-
-
-.cityName:hover {
-	-ms-transform: translate(3px, 0px); 
-    -webkit-transform: translate(3px, 0px); 
-    transform: translate(3px, 0px);
-}
-
 h2{
 
 font-size: 48px;
