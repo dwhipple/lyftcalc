@@ -56,8 +56,15 @@ padding-bottom: 20px
 	padding-bottom: 40px
 }
 
+.btn{
+	width: 140px;
+	text-align: center;
+	display: inline-block
+}
+
 .btnCity {
 	padding:0;
+	margin:0;
 
 }
 
@@ -101,13 +108,7 @@ form input {
 	overflow: scroll
 }
 
-.btn{
 
-	padding:0 50 50 50px;
-	width: 140px;
-	text-align: center;
-	display: inline-block
-}
 
 a:link {
 	text-decoration: none
