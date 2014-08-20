@@ -1,5 +1,45 @@
-/*Homepage CSS*/
 
+
+/*TABLE OF CONTENTS
+1. HOMEPAGE
+2. CITIES
+3. UNIVERSAL
+4. FOOTER
+*/
+
+/*1. HOMEPAGE
+========================*/
+
+#mainWell h2{
+
+font-size: 48px;
+font-family:'Lobster', cursive;
+color:#000;
+text-align:center;
+padding-bottom: 20px
+}
+
+#mainWell {
+	width: 70%;
+	text-align: center;
+	height: 250px;
+	max-width: 600px;
+	margin:auto;
+}
+
+#top {
+	font-size: 72px;
+	font-family: 'Lobster', cursive;
+	color: #FFFFFF;
+	text-shadow:1px 1px black;
+	text-align: center;
+	padding-bottom: 40px
+
+}
+
+
+/*2. CITIES
+========================*/
 
 .cityName:hover {
 	-ms-transform: translate(3px, 0px); 
@@ -7,14 +47,49 @@
     transform: translate(3px, 0px);
 }
 
-h2{
-
-font-size: 48px;
-font-family:'Lobster', cursive;
-color:#000;
-text-align:center;
-padding-bottom: 40px
+.cityName {
+	font-size: 72px;
+	font-family: 'Lobster', cursive;
+	color: #FFFFFF;
+	text-shadow:1px 1px black;
+	text-align: center;
+	padding-bottom: 40px
 }
+
+.btnCity {
+	padding:0;
+
+}
+
+label {
+	color: black;
+	font-size: 20px
+}
+
+legend {
+	font-size: 40px;
+	text-shadow: 1px 1px yellow;
+}
+
+form input {
+	color: black;
+	font-weight: 900
+}
+
+ h3 {
+	text-align: center;
+	font-weight: 800
+}
+
+#total {
+	font-weight: 900;
+	font-size: 30px
+}
+
+
+
+/*3. UNIVERSAL
+========================*/
 
 #cities{
 	position: fixed;
@@ -34,74 +109,26 @@ padding-bottom: 40px
 	display: inline-block
 }
 
-#cityWell {
-	width: 70%;
-	text-align: center;
-	margin: auto
-}
-
-
-.btnCity {
-	padding-top: 15px
-}
-
-/*Homepage CSS End*/
-
 a:link {
 	text-decoration: none
 }
 
-/*Tip Calc CSS Begin*/
 
-h1 {
-	font-size: 72px;
-	font-family: 'Lobster', cursive;
-	color: #FFFFFF;
-	text-shadow:1px 1px black;
-	text-align: center;
-	padding-bottom: 40px
+/*4. FOOTER
+========================*/
 
-}
-
-
-h3 {
-	text-align: center;
-	font-weight: 800
-}
-
-
-#page5{
-	position: fixed;
-	background-color: #00b4ae;
-	height: 100%;
-	width: 100%;
-	padding:30px 50px;
-	font-family: 'Ubuntu', sans-serif;
-}
-
-
-
-
-label {
+#disclaimer {
+	padding-top: 40px;
 	color: black;
-	font-size: 20px
+	text-align: center
 }
 
-legend {
-	font-size: 40px;
-	text-shadow: 1px 1px yellow;
+footer {
+	text-align: center;
+	color: black
 }
 
-form input {
-	color: black;
-	font-weight: 900
+footer h2 span {
+	font-family:'Lobster', cursive;
 }
 
-
-
-#total {
-	font-weight: 900;
-	font-size: 30px
-}
-
-/*Tip Calc CSS End*/
